@@ -81,4 +81,15 @@ class CryptoApi extends Controller
             'data' => $items
         ], 200);
     }
+
+    public function allItems()
+    {
+        $items = Crypto::all();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Semua item berhasil dimuat.',
+            'data' => $items
+        ], 200);
+    }
 }

@@ -32,6 +32,7 @@ Route::get('images/{id}', function ($id) {
 });
 
 //route for crypto api
+Route::get('crypto/all', [CryptoApi::class, 'allItems']);
 Route::get('crypto', [CryptoApi::class, 'index']);
 Route::post('crypto', [CryptoApi::class, 'store']);
 Route::post('crypto/{id}', [CryptoApi::class, 'update']);
