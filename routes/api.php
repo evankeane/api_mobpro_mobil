@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KendaraanController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\CryptoApi;
+use App\Http\Controllers\PlayerController;
 // use App\Http\Controllers\Api\KendaraanController;
 
 // Route::apiResource('kendaraans', KendaraanController::class);
@@ -23,7 +24,6 @@ Route::patch('items/{item}', [GalleryController::class, 'update']);
 Route::delete('items/{item}', [GalleryController::class, 'destroy']);
 Route::get('images/{id}', function ($id) {
     $ket = Gallery::where('id', $id)->firstOrFail();
-    // dd($imageName);
     $path = storage_path('app/public/' . $ket->gambar);
     if (!file_exists($path)) {
         return response()->json(['message' => 'Image not found'], 404);
@@ -36,3 +36,10 @@ Route::get('crypto', [CryptoApi::class, 'index']);
 Route::post('crypto', [CryptoApi::class, 'store']);
 Route::post('crypto/{id}', [CryptoApi::class, 'update']);
 Route::delete('crypto/{id}', [CryptoApi::class, 'destroy']);
+
+
+//route for player api
+Route::get('players', [PlayerController::class, 'index']);
+Route::post('players', [PlayerController::class, 'store']);
+Route::post('players/{id}', [PlayerController::class, 'update']);
+Route::delete('players/{id}', [PlayerController::class, 'destroy']);
