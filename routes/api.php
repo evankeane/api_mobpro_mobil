@@ -6,6 +6,7 @@ use App\Http\Controllers\KendaraanController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\CryptoApi;
 use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\TanamanController;
 // use App\Http\Controllers\Api\KendaraanController;
 
 // Route::apiResource('kendaraans', KendaraanController::class);
@@ -44,3 +45,9 @@ Route::get('players', [PlayerController::class, 'index']);
 Route::post('players', [PlayerController::class, 'store']);
 Route::post('players/{id}', [PlayerController::class, 'update']);
 Route::delete('players/{id}', [PlayerController::class, 'destroy']);
+
+//route for tanaman api
+Route::get('/tanaman', [TanamanController::class, 'index'])->name('tanaman.index');
+Route::post('/tanaman', [TanamanController::class, 'store'])->name('tanaman.store');
+Route::post('/tanaman/{id}', [TanamanController::class, 'update'])->name('tanaman.update');
+Route::delete('/tanaman/{id}', [TanamanController::class, 'destroy'])->name('tanaman.destroy');
