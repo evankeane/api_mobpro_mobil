@@ -11,10 +11,17 @@ class CryptoApi extends Controller
     public function index(Request $request)
     {
         $auth = $request->header('Authorization');
+        if ($auth) {
+            $data = Crypto::where('Authorization', $auth)->get();
+        } else {
+            $data = Crypto::all();
+        }
 
-        $data = Crypto::all();
-
-        return response()->json($data);
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Item berhasil ditampilkan.',
+            'data' => $data
+        ], 200);
     }
 
 
@@ -35,8 +42,9 @@ class CryptoApi extends Controller
 
         return response()->json([
             'status' => 'success',
-            'message' => 'Crypto API store method called'
-        ]);
+            'message' => 'Item berhasil ditambahkan.',
+            'data' => 'success',
+        ], 200);
     }
 
     public function update(Request $request, $id)
@@ -57,8 +65,9 @@ class CryptoApi extends Controller
 
         return response()->json([
             'status' => 'success',
-            'message' => "Crypto API update method called for ID: $id"
-        ]);
+            'message' => 'Item berhasil diperbarui.',
+            // 'data' => $item
+        ], 200);
     }
 
     public function destroy($id)
@@ -68,7 +77,8 @@ class CryptoApi extends Controller
 
         return response()->json([
             'status' => 'success',
-            'message' => "Crypto API destroy method called for ID: $id"
-        ]);
+            'message' => 'Semua item berhasil dimuat.',
+            'data' => $items
+        ], 200);
     }
 }
