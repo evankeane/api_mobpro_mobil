@@ -3,6 +3,8 @@
 // use App\Http\Controllers\API\KendaraanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KendaraanController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\CryptoApi;
 // use App\Http\Controllers\Api\KendaraanController;
 
 // Route::apiResource('kendaraans', KendaraanController::class);
@@ -28,3 +30,9 @@ Route::get('images/{id}', function ($id) {
     }
     return response()->file($path);
 });
+
+//route for crypto api
+Route::get('crypto', [CryptoApi::class, 'index']);
+Route::post('crypto', [CryptoApi::class, 'store']);
+Route::post('crypto/{id}', [CryptoApi::class, 'update']);
+Route::delete('crypto/{id}', [CryptoApi::class, 'destroy']);
