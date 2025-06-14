@@ -20,13 +20,13 @@ class GalleryController extends Controller
     $userId = $request->header('Authorization');
 
     // Cek apakah header ada atau tidak
-    if ($userId) {
-        // Jika ada, cari item berdasarkan kolom user_id yang benar
-        // $items = Gallery::where('Authorization', $userId)->latest()->get();
-        $items = Gallery::latest()->get();
+   if ($userId) {
+        $items = Gallery::where('Authorization', $userId)->latest()->get();
     } else {
-        // Jika tidak ada header, ambil semua data (untuk kasus tidak login)
-        $items = Gallery::latest()->get();
+        return response()->json([
+            'status' => 'error',
+            'message' => 'Authorization header tidak ditemukan.',
+        ], 401);
     }
 
     // Tulis log untuk debugging
