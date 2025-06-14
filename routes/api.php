@@ -7,6 +7,7 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\CryptoApi;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\TanamanController;
+use App\Http\Controllers\BeritaController;
 // use App\Http\Controllers\Api\KendaraanController;
 
 // Route::apiResource('kendaraans', KendaraanController::class);
