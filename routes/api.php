@@ -51,3 +51,9 @@ Route::get('/tanaman', [TanamanController::class, 'index'])->name('tanaman.index
 Route::post('/tanaman', [TanamanController::class, 'store'])->name('tanaman.store');
 Route::post('/tanaman/{id}', [TanamanController::class, 'update'])->name('tanaman.update');
 Route::delete('/tanaman/{id}', [TanamanController::class, 'destroy'])->name('tanaman.destroy');
+
+//route for berita api
+Route::get('berita', [BeritaController::class, 'index']);
+Route::post('berita', [BeritaController::class, 'store']);
+Route::post('berita/{id}', [BeritaController::class, 'update']);
+Route::delete('berita/{id}', [BeritaController::class, 'destroy']);
