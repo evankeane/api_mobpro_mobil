@@ -8,6 +8,7 @@ use App\Http\Controllers\CryptoApi;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\TanamanController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\GunungController;
 // use App\Http\Controllers\Api\KendaraanController;
 
 // Route::apiResource('kendaraans', KendaraanController::class);
@@ -58,3 +59,9 @@ Route::get('berita', [BeritaController::class, 'index']);
 Route::post('berita', [BeritaController::class, 'store']);
 Route::post('berita/{id}', [BeritaController::class, 'update']);
 Route::delete('berita/{id}', [BeritaController::class, 'destroy']);
+
+//route for gunung api
+Route::get('gunung', [GunungController::class, 'index']);
+Route::post('gunung', [GunungController::class, 'store']);
+Route::post('gunung/{id}', [GunungController::class, 'update']);
+Route::delete('gunung/{id}', [GunungController::class, 'destroy']);
