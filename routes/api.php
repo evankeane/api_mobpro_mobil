@@ -10,6 +10,7 @@ use App\Http\Controllers\TanamanController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\GunungController;
 use App\Http\Controllers\MobilController;
+use App\Http\Controllers\KamusController;
 
 // use App\Http\Controllers\Api\KendaraanController;
 
@@ -73,3 +74,9 @@ Route::get('mobil', [MobilController::class, 'index']);
 Route::post('mobil', [MobilController::class, 'store']);
 Route::post('mobil/{id}', [MobilController::class, 'update']);
 Route::delete('mobil/{id}', [MobilController::class, 'destroy']);
+
+//route for kamus api
+Route::get('kamus', [KamusController::class, 'index']);
+Route::post('kamus', [KamusController::class, 'store']);
+Route::post('kamus/{id}', [KamusController::class, 'update']);
+Route::delete('kamus/{id}', [KamusController::class, 'destroy']);
