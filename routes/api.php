@@ -9,6 +9,8 @@ use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\TanamanController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\GunungController;
+use App\Http\Controllers\MobilController;
+
 // use App\Http\Controllers\Api\KendaraanController;
 
 // Route::apiResource('kendaraans', KendaraanController::class);
@@ -65,3 +67,9 @@ Route::get('gunung', [GunungController::class, 'index']);
 Route::post('gunung', [GunungController::class, 'store']);
 Route::post('gunung/{id}', [GunungController::class, 'update']);
 Route::delete('gunung/{id}', [GunungController::class, 'destroy']);
+
+//route for mobil api
+Route::get('mobil', [MobilController::class, 'index']);
+Route::post('mobil', [MobilController::class, 'store']);
+Route::post('mobil/{id}', [MobilController::class, 'update']);
+Route::delete('mobil/{id}', [MobilController::class, 'destroy']);
